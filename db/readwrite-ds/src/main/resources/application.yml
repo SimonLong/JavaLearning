@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    master: # 主库（写库）
+      jdbc-url: jdbc:mysql://172.25.94.248:3316/demo_master?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false
+      username: slave
+      password: 123456
+    slave1: # ֻ从库1
+      jdbc-url: jdbc:mysql://172.25.94.248:3326/demo_master?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false
+      username: slave
+      password: 123456
+    slave2: # 从库2
+      jdbc-url: jdbc:mysql://172.25.94.248:3326/demo_master?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false
+      username: slave
+      password: 123456
+
+#mybatis:
+#  mapper-locations: classpath*:com/example/demo/mapper/*Mapper.xml
