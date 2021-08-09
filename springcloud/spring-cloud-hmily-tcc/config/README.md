@@ -1,0 +1,4 @@
+1. Springcloud Config主要用于将本地配置转移到git等远程配置中心，并实现动态刷新配置功能（数据库等特殊配置需要额外处理）
+2. 配置中心需要配置一个config-server,然后在各自的微服务服务配置client
+3. 配置中心支持本地、直连等方式，但是分布式场景应该是远程中心并将config-server注册到eureka等注册中心，实现注册中心的高可用
+4. 简单的动态刷新需要在客户端配置，并在git修改配置后请求/actuator/refresh来实现动态刷新（可利用git的web hook）。实际场景应该是利用SpringCloud Stream消息总线来控制动态刷新

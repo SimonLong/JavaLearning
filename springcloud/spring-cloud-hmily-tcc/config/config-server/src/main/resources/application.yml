@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/caorunlong/springcloud-config-demo
+          # 仓库中的对应路径
+          search-paths: conf-repo-test
+#          username:
+#          password:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+server:
+  port: 1201
+
+# 配置服务注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:1111/eureka/,http://peer2:1112/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

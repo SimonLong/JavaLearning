@@ -1,0 +1,40 @@
+spring:
+  application:
+    # 对应配置文件规则中的{application}部分
+#    name: config-client
+    name: yy
+  cloud:
+    config:
+      uri: http://172.21.224.1:1201/
+      # 对应配置文件规则中的{profile}部分
+#      profile: default
+      profile: dev
+      # 对应配置文件规则中的{profile}部分
+      label: master
+      #开启通过服务来访问Config Server的功能
+      discovery:
+        #config注册到eureka的服务名称
+        serviceId: config-server
+        enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+server:
+  port: 2001
+
+# 配置服务注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:1111/eureka/,http://peer2:1112/eureka/
+
+#开放端点，新版默认不开启/actuator/refresh，且方式需要POST
+#更改数据库配置是否要单独写数据库数据源的获取？
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

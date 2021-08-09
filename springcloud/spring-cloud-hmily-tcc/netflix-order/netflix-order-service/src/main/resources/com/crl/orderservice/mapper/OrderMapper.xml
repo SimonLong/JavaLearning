@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.crl.orderservice.mapper.OrderMapper" >
+
+  <sql id="Base_Column_List" >
+    order_id, user_id, status
+  </sql>
+
+  <insert id="insert"  useGeneratedKeys="true" keyProperty="orderId">
+    insert into t_order ( <if test="orderId!=null">order_id,</if>user_id, status)
+    values (<if test="orderId!=null">#{orderId},</if> #{userId},#{status})
+  </insert>
+
+  <update id="cancelOrder">
+    update t_order set status = #{status} where order_id = #{orderId}
+  </update>
+
+
+</mapper>

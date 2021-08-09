@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    &lt;!&ndash; Aspect 切面配置，是否开启AOP切面&ndash;&gt;
+    <aop:aspectj-autoproxy expose-proxy="true"/>
+    &lt;!&ndash;扫描框架的包&ndash;&gt;
+    <context:component-scan base-package="com.hmily.tcc.*"/>
+    &lt;!&ndash;启动类属性配置&ndash;&gt;
+    <bean id="hmilyTransactionBootstrap" class="com.hmily.tcc.core.bootstrap.HmilyTransactionBootstrap">
+        <property name="serializer" value="kryo"/>
+        <property name="recoverDelayTime" value="120"/>
+        <property name="retryMax" value="3"/>
+        <property name="scheduledDelay" value="120"/>
+        <property name="scheduledThreadMax" value="4"/>
+        <property name="repositorySupport" value="db"/>
+        <property name="tccDbConfig">
+            <bean class="com.hmily.tcc.common.config.TccDbConfig">
+                <property name="url"
+                          value="jdbc:mysql://192.168.1.98:3306/tcc?useUnicode=true&amp;characterEncoding=utf8"/>
+                <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </bean>
+        </property>
+    </bean>-->
+
+    <context:component-scan base-package="org.dromara.hmily.*"/>
+    <aop:aspectj-autoproxy expose-proxy="true"/>
+    <bean id="hmilyTransactionBootstrap" class="org.dromara.hmily.core.bootstrap.HmilyTransactionBootstrap">
+        <property name="serializer" value="kryo"/>
+        <property name="recoverDelayTime" value="120"/>
+        <property name="retryMax" value="30"/>
+        <property name="scheduledDelay" value="120"/>
+        <property name="scheduledThreadMax" value="4"/>
+        <property name="repositorySupport" value="db"/>
+        <property name="hmilyDbConfig">
+            <bean class="org.dromara.hmily.common.config.HmilyDbConfig">
+                <property name="url"
+                          value="jdbc:mysql://localhost:3307/sharding_db?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=GMT%2B8&amp;useSSL=false"/>
+                <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="username" value="root"/>
+                <property name="password" value="admin"/>
+            </bean>
+        </property>
+    </bean>
+
+</beans>
