@@ -1,26 +1,26 @@
 ### 项目结构
 
-├── config  配置中心演示
-│   ├── config-client
-│   ├── config-server
-├── eureka-server  注册中心server
-├── netflix-order  订单服务
-│   ├── netflix-order-dto
-│   ├── netflix-order-service
-│   ├── netflix-order-service-api
-│   ├── netflix-order-web
-├── netflix-user  用户服务
-│   ├── netflix-user-dto
-│   ├── netflix-user-service
-│   ├── netflix-user-service-api
-├── sleuth  链路中心演示
-│   ├── sleuth-trace1
-│   ├── sleuth-trace2
-│   └── zipkin-server
-├── stream  消息驱动微服务演示
-│   ├── stream-hello
-│   └── stream-self
-└── zuul-gateway  服务网关
+├── config  配置中心演示  
+│   ├── config-client  
+│   ├── config-server  
+├── eureka-server  注册中心server  
+├── netflix-order  订单服务  
+│   ├── netflix-order-dto  
+│   ├── netflix-order-service  
+│   ├── netflix-order-service-api  
+│   ├── netflix-order-web  
+├── netflix-user  用户服务  
+│   ├── netflix-user-dto  
+│   ├── netflix-user-service  
+│   ├── netflix-user-service-api  
+├── sleuth  链路中心演示  
+│   ├── sleuth-trace1  
+│   ├── sleuth-trace2  
+│   └── zipkin-server  
+├── stream  消息驱动微服务演示  
+│   ├── stream-hello  
+│   └── stream-self  
+└── zuul-gateway  服务网关  
 
 ### 概念理解
 
