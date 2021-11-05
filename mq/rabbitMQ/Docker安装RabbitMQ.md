@@ -33,7 +33,7 @@
 
    producer通过不是直接投递消息到队列中，而是利用交换机与queue绑定，不同的交换机绑定方式不一样。
 
-        FanoutExchange: 将消息分发到所有的绑定队列，无routingkey的概念
+        FanoutExchange: 将消息分发到所有的绑定队列，无routingkey的概念，相当于这是一个Topic，所有绑定的队列都会收到消息
         HeadersExchange ：通过添加属性key-value匹配
-        DirectExchange:按照routingkey分发到指定队列
-        TopicExchange:多关键字匹配
+        DirectExchange:按照routingkey分发到指定队列，精准匹配Exchange,routingkey找到对应的队列
+        TopicExchange:多关键字匹配，通过通配符可匹配到Exchange上的多个routingkey，从而分发大多个队列上，实现Topic队列
